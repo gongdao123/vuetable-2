@@ -1,10 +1,14 @@
 import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import Vuetable from './components/Vuetable.vue'
 import VuetablePagination from './components/VuetablePagination.vue'
 import VuetablePaginationDropdown from './components/VuetablePaginationDropdown.vue'
 import VuetablePaginationInfo from './components/VuetablePaginationInfo.vue'
 
 let E_SERVER_ERROR = 'Error communicating with the server'
+
+Vue.use(VueAxios, axios)
 
 Vue.component('custom-actions', {
   template: [

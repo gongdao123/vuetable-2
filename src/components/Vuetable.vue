@@ -105,13 +105,6 @@
 
 <script>
 import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import _ from 'lodash'
-
-if (!_.has(Vue, 'http')) {
-  Vue.use(VueAxios, axios)
-}
 
 export default {
   props: {
@@ -229,7 +222,6 @@ export default {
     }
   },
   created: function () {
-    console.log('created')
     this.normalizeFields()
     if (this.loadOnStart) {
       this.loadData()
@@ -259,7 +251,6 @@ export default {
 
       let self = this
       let obj
-      console.log(this.fields)
       this.fields.forEach(function (field, i) {
         if (typeof (field) === 'string') {
           obj = {
@@ -316,7 +307,6 @@ export default {
       return arr.indexOf(str) === -1
     },
     loadData: function (success = this.loadSuccess, failed = this.loadFailed) {
-      console.log('load data')
       this.fireEvent('loading')
 
       this.httpOptions['params'] = this.getAllQueryParams()
